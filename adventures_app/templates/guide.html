@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block bodyClass %}beach{%endblock%}
+
+{% block content %}
+<div class="guide">
+    <div class="profile">
+        <img class="picture" src="{{guide.picture.url}}" alt="profile picture">
+        <div class="info">
+            <h1>Name: {{guide.user.first_name}} {{guide.user.last_name}}</h1>
+            <h3>Email: {{guide.user.email}}</h3>
+            <h3>About me: {{ guide.about_me }}</h3>
+            {% if user.id == guide.user.id %}
+            <a class='button' href="/new_trip">Create a New Trip</a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="my_trips">
+        {% if guide.trips.all.count < 1 %}
+        <h3 class="label">{{ guide.user.first_name }} has no trips offered.</h3>
+        {% else %}
+        <h3 class='label'>My Offered Trips</h3>
+        {% include 'pagination.html' %}
+        <div class="trips">
+            {% for trip in page_obj %}
+                <div class="trip">
+                    <a class="tripImageA" href="/view_trip/{{trip.id}}">
+                        <img class="tripImage" src="{{trip.picture.url}}" alt="{{trip.name}} picture">
+                    </a>
+                    <a class="tripTitle" href="view_trip/{{trip.id}}">{{trip.name}}</a>
+                </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% include 'pagination.html' %}
+    </div>
+</div>
+{% endblock %}

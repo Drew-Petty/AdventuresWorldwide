@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block bodyClass %}waterfall{%endblock%}
+
+{% block content %}
+<div class="edit">
+    <div class="left">
+        <img src="{{trip.picture.url}}" alt="Trip Picture">
+        <form class="form" action="/update_trip_picture/{{trip.id}}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ pictureForm.as_p }}
+            <input class="submit" type="submit" value="change picture">
+        </form>
+    </div>
+    <div class="right">
+        <form class="form" action="/update_trip/{{trip.id}}">
+            {% csrf_token %}
+            {{tripEditForm.as_p}}
+            <p>
+                <label for="about">About:</label>
+                <textarea name="about" rows="10">{{trip.about}}</textarea>
+            </p>
+            <input class='submit' type="submit" value="Update">
+            <a class='button' href="/view_trip/{{trip.id}}">Cancel</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,15 @@
+<div class=banner>
+    <h1>Hello {{user.first_name}}</h1>
+    <div class="links">
+        <a href="/main">Main Menu</a>
+        {% if user.guide%}
+            <a href="/profile">Profile</a>
+        {%else%}
+            <a href="/new_guide">Become a Guide</a>
+        {%endif%}
+        <form class="link" action="/accounts/logout/" method="POST">
+            {% csrf_token %}
+            <button type="submit">Log Out</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block bodyClass %}sea{%endblock%}
+
+{% block content %}
+    <div class="column">
+        
+        <img src="static/img/default_guide.png" alt="default guide picture">
+        <form class='form' action="create_guide" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <p>
+                <label for="about_me">About Me:</label>
+                <textarea name="about_me" id="" rows="10"></textarea>
+            </p>
+            <input class="submit" type="submit" value="Upgrade to guide!">
+            <a class='button' href="main">Cancel</a>
+        </form>
+    </div>
+{% endblock %}

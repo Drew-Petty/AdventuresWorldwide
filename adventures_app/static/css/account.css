@@ -1,0 +1,75 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    background-image: url(../img/Boat.jpg);
+    background-position-x: center;
+}
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: red;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px;
+}
+.banner{
+    border: red solid 5px;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 5px;
+    text-align: center;
+    background: rgba(255, 255, 255, .7);
+}
+.banner p{
+    font-weight: bold;
+}
+.gateway{
+    border: red solid 5px;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 5px;
+    text-align: center;
+    background: rgba(255, 255, 255, .7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.gateway a{
+    border: 5px solid red;
+    border-radius: 10px;
+    margin: 10px 0px;
+    padding: 5px;
+    width: 280px;
+    text-decoration: none;
+    color: red;
+    font-weight: bold;
+    font-size: large;
+}
+#button{
+    border: 5px red solid;
+    border-radius: 10px;
+    margin: 10px 0px;
+    padding: 5px;
+    width: 300px;
+    background-color: rgba(255, 255, 255, .5);
+    color: red;
+    font-weight: bold;
+    font-size: large;
+    cursor: pointer;
+}
+form p{
+    margin: 10px 0px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 10px;
+    font-weight: bold;
+    font-size: large;
+    width: 310px;
+}
+.errorlist{
+    list-style-type: none;
+    width: 280px;
+    font-weight: bold;
+}

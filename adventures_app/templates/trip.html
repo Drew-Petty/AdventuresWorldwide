@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block bodyClass %}stone{%endblock%}
+
+{% block content %}
+<div class="column">
+    <img src="{{trip.picture.url}}" alt="Trip Picture">
+    <div class="info">
+        <h1>Trip: {{trip.name}}</h1>
+        <h3>Duration: {{trip.duration}} Days</h3>
+        <h3>Cost: ${{trip.cost}}</h3>
+        <h3>Size: {{trip.capacity}} People</h3>
+        <h3>Guide: {{trip.guide.user.first_name}} {{trip.guide.user.last_name}}</h3>
+        <h3>About: {{trip.about}}</h3>
+        <h3>Categories: {% for category in trip.category.all%}{{category}} {% endfor %}</h3>
+        {% if user.id == trip.guide.user.id %}
+        <a class="button" href="/edit_trip/{{trip.id}}">Edit Trip</a>
+        <a class="button" href="/delete_trip/{{trip.id}}">Delete Trip</a>
+        {% else%}
+        <a class="button" href="/view_guide/{{trip.guide.id}}">View Guide</a>
+        {% endif %}
+    </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block bodyClass %}cave{%endblock%}
+
+{% block content %}
+<div class="edit">
+    <div class="left">
+        <img src="{{user.guide.picture.url}}" alt="Profile Picture">
+        <form class="form" action="update_profile_picture" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ pictureForm.as_p }}
+            <input class="submit" type="submit" value="change picture">
+        </form>
+    </div>
+    <div class="right">
+        <form class="form" action="/update_trip/{{trip.id}}">
+            {% csrf_token %}
+            <p>
+                <label for="about_me">About Me:</label>
+                <textarea name="about_me" rows="10">{{user.guide.about_me}}</textarea>
+            </p>
+            <input class='submit' type="submit" value="Update">
+            <a class='button' href="/view_trip/{{trip.id}}">Cancel</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

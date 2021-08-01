@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block bodyClass %}jungle{%endblock%}
+{% block content %}
+{% include 'filter.html'%}
+{% include 'pagination.html' %}
+<div class="main">
+    {% for trip in page_obj %}
+    <div class="trip">
+        <a class='tripImageA' href="view_trip/{{trip.id}}">
+            <img class="tripImage" src="{{trip.picture.url}}" alt="{{trip.name}} picture">
+        </a>
+        <a class='tripTitle' href="view_trip/{{trip.id}}">{{trip.name}}</a>
+    </div>
+    {% endfor %}
+</div>
+{% include 'pagination.html' %}
+{% endblock %}
